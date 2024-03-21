@@ -10,6 +10,7 @@ export default {
         primary: "#FEED00",
         grayInput: "#F2F4F7",
         modalGray: "#F6F6F6",
+        yellow: "#FFC700",
       },
       container: {
         center: true,

@@ -16,6 +16,8 @@ import Skeleton from "react-loading-skeleton";
 import { useGetCatalog } from "./services/query/useGetCategory";
 import { Input } from "./components/ui/input";
 import { CatalogCard } from "./components/card/catalogCard";
+import { Search } from "./components/card/search";
+
 
 
 export const Header = () => {
@@ -34,12 +36,12 @@ export const Header = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 items-center justify-center h-[60vh] md:h-auto lg:h-auto lg:py-[52px] lg:px-[92px] overflow-scroll gap-5">
                             {data?.map((item) => (
                                 <Link to={`/category/${item.name}`}>
-                                   <CatalogCard 
-                                   img={item.img}
-                                   text={item.text}
-                                   id={item.id}
+                                    <CatalogCard
+                                        img={item.img}
+                                        text={item.text}
+                                        id={item.id}
 
-                                   />
+                                    />
                                 </Link>
                             ))}
                         </div>
@@ -59,7 +61,9 @@ export const Header = () => {
                         <AccountIcon />
                     </div>
                     <div className="flex items-center gap-[57px]">
-                        <img src={logo} alt="img" />
+                        <Link to="/">
+                            <img src={logo} alt="img" />
+                        </Link>
                         <div className="hidden lg:block">
                             <Button icon={<CatalogIcon />} onClick={open} variant="secondary">
                                 Каталог
@@ -67,7 +71,7 @@ export const Header = () => {
                         </div>
                     </div>
                     <div className=" items-center hidden md:flex lg:flex relative">
-                        <Input variant="secondary" placeholder="Поиск" />
+                        <Search />
                         <div className=" absolute md:translate-x-[460px] lg:translate-x-[623px]">
                             <SearchIcon />
                         </div>

@@ -1,6 +1,7 @@
 import { Home } from "../../pages/home"
-import {Category} from "../../pages/category";
+import { Category } from "../../pages/category";
 import { nanoid } from "@reduxjs/toolkit";
+import { ProductDetail } from "../../pages/product-datails";
 
 
 export const homeRoutes = [
@@ -12,6 +13,12 @@ export const homeRoutes = [
     {
         component: <Category />,
         id: nanoid(),
-        path: "category/:id"
+        path: "category/:slug"
+    },
+
+    {
+        component: <ProductDetail />,
+        id: nanoid(),
+        path: "detail/:slug",
     }
 ];
