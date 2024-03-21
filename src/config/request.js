@@ -1,4 +1,4 @@
 import axios from "axios";
 
 
-export const request = axios.create({baseURL: "http://localhost:3600"});
+export const request = axios.create({baseURL: "https://server-json-six.vercel.app/"});
