@@ -85,13 +85,15 @@ export const Header = () => {
                             <LikeIcon />
                             <p className="text-md font-normal hidden lg:block">Избранное</p>
                         </div>
-                        <div className="flex flex-col items-center">
-                            <div className=" relative">
-                                <CartIcon />
-                                <span className="w-[16px] h-[16px] px-[7px] py-[7px] absolute top-[-7px] right-[-6px] rounded-[20px] bg-red-600 flex items-center justify-center text-white">3</span>
+                        <Link to="/cart/:123">
+                            <div className="flex flex-col items-center">
+                                <div className=" relative">
+                                    <CartIcon />
+                                    <span className="w-[16px] h-[16px] px-[7px] py-[7px] absolute top-[-7px] right-[-6px] rounded-[20px] bg-red-600 flex items-center justify-center text-white">3</span>
+                                </div>
+                                <p className="text-md font-normal hidden lg:block">Корзина</p>
                             </div>
-                            <p className="text-md font-normal hidden lg:block">Корзина</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="flex md:hidden justify-center lg:hidden items-center gap-[4px] px-[16px] mt-[7px]">
