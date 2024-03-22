@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useGetNewProduct } from "../home/serivces/query/useGetNewProduct";
 import { useParams } from "react-router-dom";
 import { Star } from "../../assets/star";
@@ -6,10 +6,28 @@ import { Like } from "../../assets/like";
 import { TopIcon } from "../../assets/topicon";
 
 export const ProductDetail = () => {
+    const [clicked, setClicked] = React.useState(false);
+    const DivElement = useRef(null);
     const { data, isLoading } = useGetNewProduct("phones");
     const params = useParams();
     const result = data?.find((item) => item.id == params.slug);
     console.log(result);
+
+    useEffect(() => {
+        const myElement = DivElement.current;
+        if(myElement) {
+            if(clicked) {
+                myElement.style.display = "flex";
+                myElement.style.transition = "1s";
+            } else {
+                myElement.style.display = "none";
+            }
+        }
+    }, [clicked])
+
+    const handleClick = () => {
+        setClicked(!clicked)
+    };
     return (
         <>
             <div className="container  flex flex-col items-center justify-center mt-[8px] pl-[10px]">
@@ -45,16 +63,16 @@ export const ProductDetail = () => {
                         </div>
                         <h3 className="text-2xl font-medium">{result.price}Сум</h3>
                     </div>
-                    <div className="w-[343px] mb-[56px] bg-primary py-[16px] px-[136px] flex items-center justify-center">
+                    <div  className="w-[343px] mb-[56px] bg-primary py-[16px] px-[136px] flex items-center justify-center">
                         <p className="text-black font-normal whitespace-nowrap">В корзину</p>
                     </div>
-                    <div className="flex items-center gap-[129px]">
+                    <div onClick={handleClick} className="flex items-center gap-[129px]">
                         <h3 className="text-md font-medium w-[190px] text-left">Характеристики</h3>
                         <div>
                             <TopIcon />
                         </div>
                     </div>
-                    <div className="flex flex-col text-left">
+                    <div ref={DivElement} className=" hidden flex-col text-left">
                         <div className="flex flex-col mb-[16px]">
                             <p className="text-gray-300 mb-[4px]">Цвет</p>
                             <p className="text-md font-normal">{result.color}</p>
