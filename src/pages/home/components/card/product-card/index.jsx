@@ -14,7 +14,7 @@ export const ProductCard = ({ img, title, price, rame, color }) => {
                     </div>
                 </div>
                 <div className="flex flex-col items-center text-left pl-[4px]">
-                    <p className="w-[165px] text-md font-normal text-left h-auto mb-[7px]">{title} <span>{color}</span></p>
+                    <p className="w-[165px] text-md font-normal text-left h-auto mb-[7px]">{title.length > 20 ? title.slice(0, 20) : title} <span>{color}</span></p>
                     <div className="flex items-center gap-[6px] text-left">
                         <p className="text-lg font-medium text-black gap-[6px]">{price} Сум</p>
                         <EyeIcon />

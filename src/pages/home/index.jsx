@@ -69,39 +69,45 @@ export const Home = () => {
                 </div>
             </div>
             <div className="container grid grid-cols-1 lg:grid-cols-3 mt-[60px] px-[40px]">
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col lg:text-left text-center">
                     <h2 className="text-2xl font-normal mb-[14px]">Смартфоны и планшеты</h2>
-                    <div className="lg:w-[417px] w-[300px] h-[1px] bg-gray-400"></div>
+                    <div className="lg:w-[417px] w-[300px] h-[1px] bg-gray-400 ml-auto mr-auto lg:ml-0 lg:mr-0"></div>
                     {data3?.map((item) => (
                         <Link to={`/detail/${item.id}`}>
-                            <Product1
+                           <div className="flex flex-col items-center justify-center lg:items-start">
+                           <Product1
                                 key={item.id}
                                 {...item}
                             />
+                           </div>
                         </Link>
                     ))}
                 </div>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col lg:text-left text-center">
                     <h2 className="text-2xl font-normal mb-[14px]">Ноутбуки, планшеты и компьютеры</h2>
-                    <div className="lg:w-[417px] w-[300px] h-[1px] bg-gray-400"></div>
+                    <div className="lg:w-[417px] w-[300px] h-[1px] bg-gray-400 lg:ml-0 lg:mr-0 mr-auto ml-auto"></div>
                     {data4?.map((item) => (
                         <Link to={`/detail/${item.id}`}>
-                            <Product1
+                           <div className="flex flex-col items-center justify-center lg:items-start">
+                           <Product1
                                 key={item.id}
                                 {...item}
                             />
+                           </div>
                         </Link>
                     ))}
                 </div>
-                <div className="flex flex-col text-left">
+                <div className="flex flex-col lg:text-left text-center">
                     <h2 className="text-2xl font-normal mb-[14px]">Смартфоны и планшеты</h2>
-                    <div className="w-[417px] h-[1px] bg-gray-400"></div>
+                    <div className="w-[417px] h-[1px] bg-gray-400 lg:ml-0 lg:mr-0 mr-auto ml-auto"></div>
                     {data3?.map((item) => (
                         <Link to={`/detail/${item.id}`}>
-                            <Product1
+                            <div className="flex flex-col items-center justify-center lg:items-start">
+                           <Product1
                                 key={item.id}
                                 {...item}
                             />
+                           </div>
                         </Link>
                     ))}
                 </div>
