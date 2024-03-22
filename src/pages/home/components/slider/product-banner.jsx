@@ -49,20 +49,22 @@ const settings = {
     slidesToShow: 5,
     // autoplay: true,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
     responsive: [
         {
             breakpoint: 1024,
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 1,
+                nextArrow: <SampleNextArrow />,
+                prevArrow: <SamplePrevArrow />,
             },
         },
         {
             breakpoint: 765,
             settings: {
                 slidesToShow: 1,
+                nextArrow: <SampleNextArrow />,
+                prevArrow: <SamplePrevArrow />,
             },
         },
 
@@ -70,8 +72,7 @@ const settings = {
             breakpoint: 375,
             settings: {
                 slidesToShow: 1,
-                nextArrow: <SamplePrevArrow />,
-                prevArrow: <SampleNextArrow />,
+
             },
         }
     ],
