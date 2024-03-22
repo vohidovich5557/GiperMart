@@ -72,7 +72,8 @@ const settings = {
             breakpoint: 375,
             settings: {
                 slidesToShow: 1,
-
+                nextArrow: null,
+                prevArrow: null,
             },
         }
     ],
