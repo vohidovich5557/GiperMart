@@ -1,11 +1,11 @@
 import React from "react";
 import { LikeGray } from "../../../../assets/cart-icon/like-gray";
 import { TrashIcon } from "../../../../assets/cart-icon/trash-icon";
-import { deletData } from "../../../../redux/reducer/todoStore";
+import { deletData, toggle } from "../../../../redux/reducer/todoStore";
 import { useDispatch } from "react-redux";
 
 
-export const CartCard = ({ img, title, price, storage, id }) => {
+export const CartCard = ({ img, title, id, userCount, userPrice }) => {
     const dispatch = useDispatch();
     const deletItem = () => {
         dispatch(deletData({ id }))
@@ -22,17 +22,20 @@ export const CartCard = ({ img, title, price, storage, id }) => {
                             <h3 className="text-sm font-medium lg:text-2xl">{title}</h3>
                         </div>
                         <div className="flex flex-col  text-left">
-                            <p className="text-sm lg:text-2xl font-medium mb-[12px]">{`${price}Сум`}</p>
+                            <p className="text-sm lg:text-2xl font-medium mb-[12px]">{`${userPrice}Сум`}</p>
                             <div className="flex items-center">
-                                <div className="w-[28px] lg:w-[36px] lg:h-[36px] flex items-center justify-center h-[28px] border-2 border-gray-300">
-                                    <span>-</span>
-                                </div>
-                                <div className="w-[44px] lg:w-[56px] lg:h-[36px] flex items-center justify-center h-[28px] bg-gray-300">
-                                    <span>1</span>
-                                </div>
-                                <div className="w-[28px] lg:w-[36px] lg:h-[36px] flex items-center justify-center h-[28px] border-2 border-gray-300">
+                                <div onClick={() => dispatch(toggle({ type: "increament", id }))} className="w-[28px] lg:w-[36px] lg:h-[36px] flex items-center justify-center h-[28px] border-2 border-gray-300">
                                     <span>+</span>
                                 </div>
+                                <div className="w-[44px] lg:w-[56px] lg:h-[36px] flex items-center justify-center h-[28px] bg-gray-300">
+                                    <span>{userCount}</span>
+                                </div>
+                                {userCount <= 1 ? <div  className="w-[28px] cursor-pointer lg:w-[36px] lg:h-[36px] flex items-center justify-center h-[28px] border-2 border-gray-300">
+                                    <span>-</span>
+                                </div> : <div onClick={() => dispatch(toggle({ type: "decreament", id }))}  className="w-[28px] lg:w-[36px] lg:h-[36px] flex items-center justify-center h-[28px] border-2 border-gray-300">
+                                    <span>-</span>
+                                </div>  }
+
                             </div>
                         </div>
                     </div>

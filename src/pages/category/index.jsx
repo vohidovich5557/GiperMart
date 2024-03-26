@@ -46,7 +46,7 @@ export const Category = () => {
 
     return (
         <>
-            <div className="container flex justify-between pr-[10px]">
+            <div className={`container ${result ? "flex justify-between " : ""} pr-[10px]`}>
                 
                 {isLoading ? 
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 ml-auto mr-auto">
@@ -88,11 +88,11 @@ export const Category = () => {
                     ))}
                 </div> 
                 }
-                <div className="w-[328px] hidden lg:flex border-2 h-[500px]">
+               {result ?  <div className="w-[328px] hidden lg:flex border-2 h-[500px]">
                     {result && <div>
                         <GetAttribute result={result} />
                     </div>}
-                </div>
+                </div> : ""}
             </div>
         </>
     )
