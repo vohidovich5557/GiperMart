@@ -6,6 +6,7 @@ import { addData } from "../../redux/reducer/todoStore";
 import { Like } from "../../assets/like";
 import { TopIcon } from "../../assets/topicon";
 import { useDispatch } from "react-redux";
+import Skeleton from "react-loading-skeleton";
 
 export const ProductDetail = () => {
     const { slug, id } = useParams();
@@ -41,7 +42,15 @@ export const ProductDetail = () => {
         <>
             <div className="container  flex  flex-col items-center md:items-start md:justify-start justify-center mt-[8px] pl-[10px]">
                 <div>
+                    {isLoading ? 
+                    <div>
+                        <div>
+                            <Skeleton count={1} width={600} height={36} />
+                        </div>
+                    </div>
+                    :
                     <h2 className="w-[341px] text-left lg:text-2xl lg:w-[646px] text-sm font-medium mb-[8px]">{data?.title}<span>{data?.color}</span><span>{data?.rame}</span></h2>
+                    }
                     <div className="flex items-center gap-[111px] mb-[29px]">
                         <div className="flex items-center gap-[5px]">
                             <Star />
@@ -59,7 +68,16 @@ export const ProductDetail = () => {
                 </div>
                 <div className="flex flex-col gap-[20px] md:items-start md:flex-row">
                     <div className="w-[343px] lg:w-[435px] lg:h-[435px] h-[342px] mb-[24px]">
+                        {isLoading ? 
+                        <div>
+                            <div>
+                                <Skeleton  count={1} width={435} height={435} />
+                            </div>
+                        </div>
+                        :
                         <img src={data?.img} alt="img" className=" h-full" />
+                        }
+                        
                     </div>
                     <div className="flex flex-col md:flex-row lg:gap-[250px] md:gap-[30px]  text-left">
                         <div className="hidden lg:flex flex-col">

@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { useGetBanner } from "../../serivces/query/useGetBanner";
+import Skeleton from "react-loading-skeleton";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -67,11 +68,20 @@ export const Banner = () => {
 
   return (
     <Slider {...settings}>
-      {data?.map((item) => (
+      {isLoading ? 
+      <div>
+        <div className="flex items-center justify-center">
+          <Skeleton count={1} width={1440} height={200} />
+        </div>
+      </div>
+      :
+      data?.map((item) => (
         <div key={item.id}>
           <img src={item.img} alt="img" />
         </div>
-      ))}
+      ))
+      }
+      
     </Slider>
   );
 };

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const ProductCard = ({ img, title, price, rame, color, id, slug, attribute }) => {
     return (
         <>
-            <div className=" relative w-[214px] h-[340px] pb-[15px]">
+            <div className=" relative ml-auto mr-auto w-[214px] h-[340px] pb-[15px]">
                 <div className=" w-full h-[165px] mb-[53px]">
                     <img src={img} alt="img" className="w-full h-auto" />
                     <div className=" absolute top-[15px] translate-x-[200px] md:translate-x-[-37px] lg:translate-x-[212px]">

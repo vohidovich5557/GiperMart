@@ -11,6 +11,7 @@ import { ProductBanner } from "./components/slider/product-banner";
 import { useGetNewProduct } from "./serivces/query/useGetNewProduct";
 import { useGetNew2 } from "./serivces/query/useGetNew2";
 import { Product1 } from "./components/card/porduct/product1";
+import Skeleton from "react-loading-skeleton";
 
 
 
@@ -18,8 +19,6 @@ export const Home = () => {
     const { data, isLoading } = useGetCatalog();
     const { data: data2, isLoading: isLoading2 } = useGetNewProduct("phones");
     const { data: data5, isLoading: isLoading5 } = useGetNewProduct("notebook");
-    const { data: data3, isLoading: isLoading3 } = useGetNew2("phones");
-    const { data: data4, isLoading: isLoading4 } = useGetNew2("notebook");
     return (
         <>
             <Banner />
@@ -35,22 +34,48 @@ export const Home = () => {
             </div>
             <div className="container px-[20px]">
                 <h2 className="text-2xl font-medium mb-[24px]">Смартфоны и планшеты</h2>
-                <ProductBanner>
-                    {data2?.map((item) => (
-                        <div className="flex flex-col items-center justify-center">
-                            <ProductCard
-                                slug="phones"
-                                key={item.id}
-                                img={item.img}
-                                title={item.title}
-                                id={item.id}
-                                rame={item.rame}
-                                color={item.color}
-                                price={item.price}
-                            />
+                {isLoading2 ?
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
                         </div>
-                    ))}
-                </ProductBanner>
+                    </div>
+                    : <div>
+                        <ProductBanner>
+                            {data2?.map((item) => (
+                                <div className="flex items-center justify-center">
+                                    <ProductCard
+                                        slug="phones"
+                                        key={item.id}
+                                        img={item.img}
+                                        title={item.title}
+                                        id={item.id}
+                                        rame={item.rame}
+                                        color={item.color}
+                                        price={item.price}
+                                    />
+                                </div>
+                            ))}
+                        </ProductBanner>
+                    </div>}
+
             </div>
             <div className="w-full bg-yellow h-[850px] lg:h-[346px]">
                 <div className="container flex flex-col text-left pt-[16px] pl-0 lg:pl-[40px] mt-[48px] mb-[48px]">
@@ -111,39 +136,91 @@ export const Home = () => {
             </div>
             <div className="container px-[20px] mt-[64px]">
                 <h2 className="text-2xl font-medium mb-[24px]">Смартфоны и планшеты</h2>
-                <ProductBanner>
-                    {data2?.map((item) => (
-                        <div className="flex flex-col items-center justify-center">
-                            <ProductCard
-                                slug="phones"
-                                id={item.id}
-                                key={item.id}
-                                img={item.img}
-                                title={item.title}
-                                rame={item.rame}
-                                color={item.color}
-                                price={item.price}
-                            />
+                {isLoading2 ?
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
                         </div>
-                    ))}
-                </ProductBanner>
+                    </div>
+                    :
+                    <ProductBanner>
+                        {data2?.map((item) => (
+                            <div className="flex flex-col items-center justify-center">
+                                <ProductCard
+                                    slug="phones"
+                                    id={item.id}
+                                    key={item.id}
+                                    img={item.img}
+                                    title={item.title}
+                                    rame={item.rame}
+                                    color={item.color}
+                                    price={item.price}
+                                />
+                            </div>
+                        ))}
+                    </ProductBanner>
+                }
+
             </div>
             <div className="container px-[20px] mt-[48px]">
                 <h2 className="text-2xl font-medium mb-[24px]">Ноутбуки, планшеты и компьютеры</h2>
-                <ProductBanner>
-                    {data5?.map((item) => (
-                        <div className="flex flex-col items-center justify-center">
-                            <ProductCard
-                                slug="notebook"
-                                key={item.id}
-                                img={item.img}
-                                title={item.title}
-                                price={item.price}
-                                id={item.id}
-                            />
+                {isLoading5 ?
+                    <div>
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
+                            <div>
+                                <Skeleton count={1} width={214} height={340} />
+                            </div>
                         </div>
-                    ))}
-                </ProductBanner>
+                    </div>
+                    :
+                    <ProductBanner>
+                        {data5?.map((item) => (
+                            <div className="flex flex-col items-center justify-center">
+                                <ProductCard
+                                    slug="notebook"
+                                    key={item.id}
+                                    img={item.img}
+                                    title={item.title}
+                                    price={item.price}
+                                    id={item.id}
+                                />
+                            </div>
+                        ))}
+                    </ProductBanner>
+                }
+
             </div>
             <div className="container mt-[53px]">
 
