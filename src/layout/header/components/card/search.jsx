@@ -35,7 +35,7 @@ export const Search = () => {
                 {item.title ? (
                   <Link
                     className="transition hover:text-red-600 active:text-green-600 hover:-translate-y-2 font-semibold text-xl text-text block"
-                    to={`/catalog/${item.title}`}
+                    to={`/detail/all/${item.id}`}
                   >
                     {item.title}
                   </Link>

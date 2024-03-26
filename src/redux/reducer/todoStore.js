@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
     "users": [],
     "count": [],
@@ -19,9 +20,12 @@ export const todoStore = createSlice({
 
             return state;
         },
+        deletData: (state, action) => {
+            return {...state, users: state.users.filter((item) => item.id !== action.payload.id)}
+        }
     }
 });
 
 
 export default todoStore.reducer;
-export const { addData } = todoStore.actions;
+export const { addData, deletData } = todoStore.actions;

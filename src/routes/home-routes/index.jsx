@@ -20,7 +20,7 @@ export const homeRoutes = [
     {
         component: <ProductDetail />,
         id: nanoid(),
-        path: "detail/:slug",
+        path: "detail/:slug/:id",
     },
 
     {

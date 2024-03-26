@@ -14,6 +14,7 @@ import { SearchIcon } from "../../assets/header-icon/search-icon";
 import { CatalogIcon } from "../../assets/header-icon/katalog-icon";
 import Skeleton from "react-loading-skeleton";
 import { useGetCatalog } from "./services/query/useGetCategory";
+import {  useSelector } from "react-redux";
 import { Input } from "./components/ui/input";
 import { CatalogCard } from "./components/card/catalogCard";
 import { Search } from "./components/card/search";
@@ -23,6 +24,7 @@ import { Search } from "./components/card/search";
 export const Header = () => {
     const { isOpen, open, close } = useModal();
     const { isLoading, data } = useGetCatalog();
+    const {users} = useSelector((state) => state.todo)
     return (
         <>
             <div className="container  lg:pb-[19px] pb-[16px] flex flex-col justify-center">
@@ -89,7 +91,7 @@ export const Header = () => {
                             <div className="flex flex-col items-center">
                                 <div className=" relative">
                                     <CartIcon />
-                                    <span className="w-[16px] h-[16px] px-[7px] py-[7px] absolute top-[-7px] right-[-6px] rounded-[20px] bg-red-600 flex items-center justify-center text-white">3</span>
+                                    <span className="w-[16px] h-[16px] px-[7px] py-[7px] absolute top-[-7px] right-[-6px] rounded-[20px] bg-red-600 flex items-center justify-center text-white">{users.length}</span>
                                 </div>
                                 <p className="text-md font-normal hidden lg:block">Корзина</p>
                             </div>

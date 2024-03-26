@@ -37,18 +37,18 @@ export const Home = () => {
                 <h2 className="text-2xl font-medium mb-[24px]">Смартфоны и планшеты</h2>
                 <ProductBanner>
                     {data2?.map((item) => (
-                        <Link to={`/detail/${item.id}`}>
-                            <div className="flex flex-col items-center justify-center">
-                                <ProductCard
-                                    key={item.id}
-                                    img={item.img}
-                                    title={item.title}
-                                    rame={item.rame}
-                                    color={item.color}
-                                    price={item.price}
-                                />
-                            </div>
-                        </Link>
+                        <div className="flex flex-col items-center justify-center">
+                            <ProductCard
+                                slug="phones"
+                                key={item.id}
+                                img={item.img}
+                                title={item.title}
+                                id={item.id}
+                                rame={item.rame}
+                                color={item.color}
+                                price={item.price}
+                            />
+                        </div>
                     ))}
                 </ProductBanner>
             </div>
@@ -72,43 +72,40 @@ export const Home = () => {
                 <div className="flex flex-col lg:text-left text-center">
                     <h2 className="text-2xl font-normal mb-[14px]">Смартфоны и планшеты</h2>
                     <div className="lg:w-[417px] w-[300px] h-[1px] bg-gray-400 ml-auto mr-auto lg:ml-0 lg:mr-0"></div>
-                    {data3?.map((item) => (
-                        <Link to={`/detail/${item.id}`}>
-                           <div className="flex flex-col items-center justify-center lg:items-start">
-                           <Product1
+                    {data2?.slice(0, 4).map((item) => (
+                        <div className="flex flex-col items-center justify-center lg:items-start">
+                            <Product1
+                                slug="phones"
                                 key={item.id}
                                 {...item}
                             />
-                           </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
                 <div className="flex flex-col lg:text-left text-center">
                     <h2 className="text-2xl font-normal mb-[14px]">Ноутбуки, планшеты и компьютеры</h2>
                     <div className="lg:w-[417px] w-[300px] h-[1px] bg-gray-400 lg:ml-0 lg:mr-0 mr-auto ml-auto"></div>
-                    {data4?.map((item) => (
-                        <Link to={`/detail/${item.id}`}>
-                           <div className="flex flex-col items-center justify-center lg:items-start">
-                           <Product1
+                    {data5?.slice(0, 4).map((item) => (
+                        <div className="flex flex-col items-center justify-center lg:items-start">
+                            <Product1
+                                slug="notebook"
                                 key={item.id}
                                 {...item}
                             />
-                           </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
                 <div className="flex flex-col lg:text-left text-center">
                     <h2 className="text-2xl font-normal mb-[14px]">Смартфоны и планшеты</h2>
                     <div className="w-[417px] h-[1px] bg-gray-400 lg:ml-0 lg:mr-0 mr-auto ml-auto"></div>
-                    {data3?.map((item) => (
-                        <Link to={`/detail/${item.id}`}>
-                            <div className="flex flex-col items-center justify-center lg:items-start">
-                           <Product1
+                    {data2?.slice(0, 4).map((item) => (
+                        <div className="flex flex-col items-center justify-center lg:items-start">
+                            <Product1
+                                slug="phones"
                                 key={item.id}
                                 {...item}
                             />
-                           </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -116,18 +113,18 @@ export const Home = () => {
                 <h2 className="text-2xl font-medium mb-[24px]">Смартфоны и планшеты</h2>
                 <ProductBanner>
                     {data2?.map((item) => (
-                        <Link to={`/detail/${item.id}`}>
-                            <div className="flex flex-col items-center justify-center">
-                                <ProductCard
-                                    key={item.id}
-                                    img={item.img}
-                                    title={item.title}
-                                    rame={item.rame}
-                                    color={item.color}
-                                    price={item.price}
-                                />
-                            </div>
-                        </Link>
+                        <div className="flex flex-col items-center justify-center">
+                            <ProductCard
+                                slug="phones"
+                                id={item.id}
+                                key={item.id}
+                                img={item.img}
+                                title={item.title}
+                                rame={item.rame}
+                                color={item.color}
+                                price={item.price}
+                            />
+                        </div>
                     ))}
                 </ProductBanner>
             </div>
@@ -135,16 +132,16 @@ export const Home = () => {
                 <h2 className="text-2xl font-medium mb-[24px]">Ноутбуки, планшеты и компьютеры</h2>
                 <ProductBanner>
                     {data5?.map((item) => (
-                        <Link to={`/detail/${item.id}`}>
-                            <div className="flex flex-col items-center justify-center">
-                                <ProductCard
-                                    key={item.id}
-                                    img={item.img}
-                                    title={item.title}
-                                    price={item.price}
-                                />
-                            </div>
-                        </Link>
+                        <div className="flex flex-col items-center justify-center">
+                            <ProductCard
+                                slug="notebook"
+                                key={item.id}
+                                img={item.img}
+                                title={item.title}
+                                price={item.price}
+                                id={item.id}
+                            />
+                        </div>
                     ))}
                 </ProductBanner>
             </div>
