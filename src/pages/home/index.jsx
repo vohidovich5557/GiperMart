@@ -19,6 +19,7 @@ export const Home = () => {
     const { data, isLoading } = useGetCatalog();
     const { data: data2, isLoading: isLoading2 } = useGetNewProduct("phones");
     const { data: data5, isLoading: isLoading5 } = useGetNewProduct("notebook");
+    const { data: data3, isLoading: isLoading3 } = useGetNewProduct("brand");
     return (
         <>
             <Banner />
@@ -223,7 +224,16 @@ export const Home = () => {
 
             </div>
             <div className="container mt-[53px]">
-
+                <h2 className="text-sm lg:text-2xl font-medium text-left mb-[8px] lg:mb-[24px]">Популярные бренды</h2>
+                <div className=" grid grid-cols-6 ml-auto mr-auto gap-[12px]">
+                    {data3?.slice(0,12).map((item) => (
+                        <>
+                        <div className="w-[181px] h-[91px] py-[39px] px-[23px] bg-gray-200">
+                            <img src={item.img} alt="img" />
+                        </div>
+                        </>
+                    ))}
+                </div>
             </div>
         </>
     )
