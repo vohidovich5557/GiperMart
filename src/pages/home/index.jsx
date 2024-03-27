@@ -228,7 +228,7 @@ export const Home = () => {
                 <div className=" grid grid-cols-6 ml-auto mr-auto gap-[12px]">
                     {data3?.slice(0,12).map((item) => (
                         <>
-                        <div className="w-[181px] h-[91px] py-[39px] px-[23px] bg-gray-200">
+                        <div className="w-[48px] h-[24px] flex items-center justify-center bg-gray-200">
                             <img src={item.img} alt="img" />
                         </div>
                         </>
