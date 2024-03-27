@@ -223,14 +223,16 @@ export const Home = () => {
                 }
 
             </div>
-            <div className="container mt-[53px]">
+            <div className="container mt-[53px] pl-[20px]">
                 <h2 className="text-sm lg:text-2xl font-medium text-left mb-[8px] lg:mb-[24px]">Популярные бренды</h2>
-                <div className=" grid grid-cols-6 ml-auto mr-auto gap-[12px]">
-                    {data3?.slice(0,12).map((item) => (
+                <div className=" grid grid-cols-3 lg:grid-cols-4 md:grid-cols-4 ml-auto mr-auto gap-[12px] lg:gap-[20px]">
+                    {data3?.map((item) => (
                         <>
-                        <div className="w-[48px] h-[24px] flex items-center justify-center bg-gray-200">
-                            <img src={item.img} alt="img" />
+                       <div className="flex items-center justify-center">
+                       <div className="w-[100px] lg:w-[190px] lg:h-[100px] h-[70px] flex items-center justify-center bg-gray-200">
+                            <img src={item.img} alt="img" className="w-[48px] lg:w-[90px] lg:h-[40px]" />
                         </div>
+                       </div>
                         </>
                     ))}
                 </div>
